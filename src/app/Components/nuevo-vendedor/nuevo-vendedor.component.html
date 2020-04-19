@@ -1,0 +1,41 @@
+<h2>Crear un nuevo vendedor</h2>
+<br>
+<div [formGroup]="registroForm">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td><label>Nombre</label></td>
+                <td><input type="text" formControlName="nombre">
+                    <span class="alert-under" *ngIf="(invalidForm)">
+                        Nombre es requerido
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Apellido</label></td>
+                <td><input type="text" formControlName="apellido">
+                    <span class="alert-under" *ngIf="(invalidForm)">
+                        Apellido es requerido
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Identificacion</label></td>
+                <td><input type="text" formControlName="numeroIdentificacion">
+                    <span class="alert-under" *ngIf="(invalidForm)">
+                        Identificación es requerida
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Ciudad</label></td>
+                <td><select formControlName="codigoCiudad">
+                    <option *ngFor="let ciudad of ciudades" value={{ciudad.codigo}} selected>{{ciudad.descripcion}}</option>
+                </select></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="elemento">
+        <button type="button" class="btn btn-primary" (click)='send_data()'> Enviar</button>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<h1>Vendedores</h1>
+<br>
+<br>
+<pre *ngIf="!elementos">Loading....</pre>
+<table class="table table-striped" *ngIf="elementos">
+    <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Identificacion</th>
+            <th>Ciudad</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let elemento of elementos; let i = index">
+            <td><a [routerLink]="" (click)='open_modal(elemento.codigo)' >{{elemento.codigo}}</a></td>
+            <td><i>{{elemento.nombre}}</i></td>
+            <td><i>{{elemento.apellido}}</i></td>
+            <td><i>{{elemento.numeroIdentificacion}}</i></td>
+            <td><i>{{elemento.ciudad}}</i></td>
+            <td><i class="material-icons" style="color: red;" (click)='delete_line(i,elemento.codigo)'>delete_forever</i></td>
+        </tr>
+    </tbody>
+</table>
+<button type="button" class="btn btn-link" (click)="save_data_modal()">Nuevo Vendedor</button><br>
+<button type="button" class="btn btn-link" (click)="save_data_ciudad_modal()">Nueva Ciudad</button>

@@ -1,0 +1,19 @@
+<h2>Crear una nueva ciudad</h2>
+<br>
+<div [formGroup]="registroForm">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td><label>Descripción</label></td>
+                <td><input type="text" formControlName="descripcion">
+                    <span class="alert-under" *ngIf="(registroForm.get('descripcion').touched && invalidForm)">
+                        Descripción es requerida
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="elemento">
+        <button type="button" class="btn btn-primary" (click)='send_data()'> Enviar</button>
+    </div>
+</div>
